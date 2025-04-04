@@ -1,1 +1,53 @@
-<p>employee-add works!</p>
+<mat-card>
+    <mat-card-title>Add New Employee</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="addForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+  
+        <!-- First Name -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstName" required />
+        </mat-form-field>
+  
+        <!-- Last Name -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastName" required />
+        </mat-form-field>
+  
+        <!-- Email -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="email" required />
+        </mat-form-field>
+  
+        <!-- Salary -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Salary</mat-label>
+          <input matInput type="number" formControlName="salary" required />
+        </mat-form-field>
+  
+        <!-- Department -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Department</mat-label>
+          <input matInput formControlName="department" required />
+        </mat-form-field>
+  
+        <!-- Picture Upload -->
+        <div style="margin-bottom: 16px;">
+          <label for="picture">Upload Picture:</label>
+          <input type="file" id="picture" (change)="onFileSelected($event)" accept="image/*" />
+        </div>
+  
+        <!-- Error -->
+        <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  
+        <!-- Submit -->
+        <button mat-raised-button color="primary" type="submit" [disabled]="addForm.invalid">
+          Add Employee
+        </button>
+  
+      </form>
+    </mat-card-content>
+  </mat-card>
+  

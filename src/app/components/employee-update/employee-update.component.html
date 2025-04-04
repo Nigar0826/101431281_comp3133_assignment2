@@ -1,1 +1,48 @@
-<p>employee-update works!</p>
+<mat-card>
+    <mat-card-title>Update Employee</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+        
+        <!-- First Name -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstName" />
+        </mat-form-field>
+  
+        <!-- Last Name -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastName" />
+        </mat-form-field>
+  
+        <!-- Email -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="email" />
+        </mat-form-field>
+  
+        <!-- Salary -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Salary</mat-label>
+          <input matInput type="number" formControlName="salary" />
+        </mat-form-field>
+  
+        <!-- Department -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Department</mat-label>
+          <input matInput formControlName="department" />
+        </mat-form-field>
+  
+        <!-- Error Message -->
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
+  
+        <!-- Submit -->
+        <button mat-raised-button color="primary" type="submit" [disabled]="updateForm.invalid">
+          Update Employee
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  

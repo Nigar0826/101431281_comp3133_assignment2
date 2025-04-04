@@ -1,1 +1,49 @@
-<p>employee-list works!</p>
+<h2>Employee List</h2>
+
+<!-- 🔍 Search by Department -->
+<mat-form-field appearance="fill" style="width: 300px; margin-bottom: 20px;">
+  <mat-label>Search by Department</mat-label>
+  <input matInput [(ngModel)]="searchTerm" placeholder="e.g. IT, HR, Marketing" />
+</mat-form-field>
+
+<!-- Table with Picture Column -->
+<table *ngIf="!loading && filteredEmployees.length">
+  <thead>
+    <tr>
+      <th>Picture</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Salary</th>
+      <th>Department</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of filteredEmployees">
+      <td>
+        <img *ngIf="emp.picture" 
+             [src]="emp.picture" 
+             alt="Employee Photo" 
+             width="50" 
+             height="50" 
+             style="border-radius: 50%; object-fit: cover;" />
+        <span *ngIf="!emp.picture">No Image</span>
+      </td>
+      <td>{{ emp.firstName }}</td>
+      <td>{{ emp.lastName }}</td>
+      <td>{{ emp.email }}</td>
+      <td>{{ emp.salary }}</td>
+      <td>{{ emp.department }}</td>
+      <td>
+        <a mat-button color="accent" [routerLink]="['/view', emp._id]">View</a>
+        <a mat-button color="primary" [routerLink]="['/update', emp._id]">Edit</a>
+        <button mat-button color="warn" (click)="deleteEmployee(emp._id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Status messages -->
+<p *ngIf="loading">Loading employees...</p>
+<p *ngIf="!loading && !filteredEmployees.length">No employees found.</p>

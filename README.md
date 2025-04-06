@@ -121,37 +121,53 @@ This is a full-stack Employee Management App built using Angular for the fronten
 - Friendly validation error messages for all forms.
 - Navbar with Logout.
 
+## Links:
+- [GitHub Repository](https://github.com/Nigar0826/101431281_comp3133_assignment2)
+- [Live Frontend Deployment](https://one01431281-comp3133-assignment2.onrender.com)
+- [Live Backend (GraphQL Endpoint)](https://employee-management-backend-rf1o.onrender.com/graphql)
+
 ## Screenshots
 ### Signup
 ![Signup Page](src/assets/images/sign_up_f.png)
 ![Signup Page](src/assets/images/sign_up_b.png)
+![Signup Page](src/assets/images/sign_up_L.png)
 
 ### Login
 ![Login](src/assets/images/login_f.png)
 ![Login](src/assets/images/login_b.png)
+![Login](src/assets/images/login_L.png)
 
 ### Employee List
 ![Employee List](src/assets/images/employee_list_f.png)
 ![Employee List](src/assets/images/employee_list_b.png)
+![Employee List](src/assets/images/employee_list_L.png)
 
 ### Add Employee
 ![Add Employee](src/assets/images/add_employee_f.png)
+![Add Employee](src/assets/images/add_employee_L.png)
 ![Add Employee](src/assets/images/employee_added.png)
+![Add Employee](src/assets/images/employee_added_L.png)
 ![Add Employee](src/assets/images/add_employee_b.png)
 
 ### View Employee Details
 ![View Employee Details](src/assets/images/view_details_f.png)
 ![View Employee Details](src/assets/images/view_details_b.png)
+![View Employee Details](src/assets/images/view_details_L.png)
 
 ### Update Employee
 ![Update Employee](src/assets/images/update_employee_f.png)
-![Update Employee](src/assets/images/update_emplyee_b.png)
+![Update Employee](src/assets/images/update_employee_b.png)
+![Update Employee](src/assets/images/update_employee_L.png)
+
 
 ### Delete Employee
 ![Delete Employee](src/assets/images/delete_employee_f.png)
 ![Employee Deleted](src/assets/images/employee_deleted.png)
+![Delete Employee](src/assets/images/delete_employee_L.png)
+![Employee Deleted](src/assets/images/employee_deleted_L.png)
 ![Delete Employee](src/assets/images/delete_employee_b.png)
 
 ### Filter Employee
 ![Filter Employee](src/assets/images/filter_employee_f.png)
 ![Filter Employee](src/assets/images/filter_employee_b.png)
+![Filter Employee](src/assets/images/filter_employee_L.png)

@@ -53,7 +53,7 @@ export class LoginComponent {
           const user = result?.data?.login?.user;
   
           if (token) {
-            localStorage.setItem('authToken', token);  
+            localStorage.setItem('token', token);  
             localStorage.setItem('loggedInEmail', user.email);
             this.router.navigate(['/employees']);       
           } else {

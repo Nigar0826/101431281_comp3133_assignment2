@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';         
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-list',
@@ -28,8 +29,9 @@ export class EmployeeListComponent implements OnInit {
   loading = true;
   error: any;
   searchTerm: string = '';
+  successMessage: string = '';
 
-  constructor(private apollo: Apollo) {}
+  constructor(private apollo: Apollo, private router: Router) {}
 
   ngOnInit(): void {
     this.fetchEmployees();
@@ -60,16 +62,29 @@ export class EmployeeListComponent implements OnInit {
     );
   }
 
-  deleteEmployee(id: string) {
+  view(emp: any) {
+    console.log('View clicked', emp);
+    this.router.navigate(['/view', emp._id]); 
+  }
+
+  edit(emp: any) {
+    console.log('Edit clicked', emp);
+    this.router.navigate(['/update', emp._id]); 
+  }
+
+  // Already Exists: Delete
+  delete(emp: any) {
     if (confirm('Are you sure you want to delete this employee?')) {
       this.apollo
         .mutate({
           mutation: DELETE_EMPLOYEE,
-          variables: { id },
+          variables: { id: emp._id },
           refetchQueries: [{ query: GET_ALL_EMPLOYEES }]
         })
         .subscribe({
-          next: () => console.log('Deleted'),
+          next: () => {
+            alert('Employee Deleted Successfully'); 
+          },
           error: (err) => {
             console.error('Delete failed:', err);
             alert('Failed to delete employee');
@@ -77,4 +92,4 @@ export class EmployeeListComponent implements OnInit {
         });
     }
   }
-}
+}  

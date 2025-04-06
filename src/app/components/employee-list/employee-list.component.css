@@ -1,0 +1,64 @@
+/* General link style */
+.action-link {
+    font-size: 18px;
+    margin-right: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Specific colors */
+  .action-link.view {
+    color: #106a6d; 
+  }
+  
+  .action-link.edit {
+    color: #106a6d; 
+  }
+  
+  .action-link.delete {
+    color: #106a6d; 
+  }
+  
+  /* Optional hover effects */
+  .action-link:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+  
+  .actions-cell {
+    text-align: right;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  .action-btn {
+    background-color: #106a6d;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    font-weight: 600;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .action-btn:hover {
+    background-color: #00C5CD; 
+    transform: scale(1.05); 
+  }
+  
+  .actions-cell {
+    text-align: right;
+    width: 1%; 
+    white-space: nowrap; 
+  }
+  
+  
+  
+  

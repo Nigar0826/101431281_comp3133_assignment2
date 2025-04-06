@@ -1,11 +1,9 @@
-<mat-toolbar color="primary">
-  <span>Employee Management App</span>
-  <span class="spacer"></span>
-  <a mat-button routerLink="/employees">Employees</a>
-  <a mat-button routerLink="/add-employee">Add</a>
+<div class="navbar-wrapper">
+  <mat-toolbar color="primary" class="navbar">
+    <span class="app-title">Employee Management App</span>
+    <span class="spacer"></span>
 
-  <!-- Show user email if logged in -->
-  <span *ngIf="userEmail" class="welcome">Welcome, {{ userEmail }}</span>
-
-  <button mat-button (click)="logout()">Logout</button>
-</mat-toolbar>
+    <span *ngIf="userEmail" class="welcome">Welcome, {{ userEmail }}</span>
+    <button *ngIf="userEmail" mat-button class="logout-btn" (click)="logout()">Logout</button>
+  </mat-toolbar>
+</div>

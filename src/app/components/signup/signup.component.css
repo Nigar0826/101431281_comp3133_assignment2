@@ -1,6 +1,68 @@
-.signup-card {
-    max-width: 400px;
-    margin: 40px auto;
-    padding: 20px;
-  }
-  
+/* Center the Sign Up page content */
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 55vh;
+  padding-bottom: 28px;
+}
+
+/* Sign Up card (mat-card) */
+mat-card {
+  width: 590px;
+  padding: 28px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+/* Card title */
+mat-card-title {
+  text-align: center;
+  font-size: 26px;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Card content padding */
+mat-card-content {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* Form fields */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 2px;
+  box-sizing: border-box;
+}
+
+/* Submit Button */
+button[type="submit"] {
+  width: 100%;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 28px 0;
+  border: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--button-hover);
+  transform: scale(1.03);
+  cursor: pointer;
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 500;
+}

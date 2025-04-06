@@ -1,53 +1,79 @@
-<mat-card>
+<div class="page-wrapper">
+  <!-- Card -->
+  <mat-card>
     <mat-card-title>Add New Employee</mat-card-title>
     <mat-card-content>
       <form [formGroup]="addForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
-  
+
         <!-- First Name -->
         <mat-form-field appearance="fill" class="full-width">
           <mat-label>First Name</mat-label>
           <input matInput formControlName="firstName" required />
+          <mat-error *ngIf="addForm.get('firstName')?.hasError('required')">
+            First name is required.
+          </mat-error>
         </mat-form-field>
-  
+
         <!-- Last Name -->
         <mat-form-field appearance="fill" class="full-width">
           <mat-label>Last Name</mat-label>
           <input matInput formControlName="lastName" required />
+          <mat-error *ngIf="addForm.get('lastName')?.hasError('required')">
+            Last name is required.
+          </mat-error>
         </mat-form-field>
-  
+
         <!-- Email -->
         <mat-form-field appearance="fill" class="full-width">
           <mat-label>Email</mat-label>
           <input matInput type="email" formControlName="email" required />
+          <mat-error *ngIf="addForm.get('email')?.hasError('required')">
+            Email is required.
+          </mat-error>
+          <mat-error *ngIf="addForm.get('email')?.hasError('email')">
+            Please enter a valid email address.
+          </mat-error>
         </mat-form-field>
-  
+
         <!-- Salary -->
         <mat-form-field appearance="fill" class="full-width">
           <mat-label>Salary</mat-label>
           <input matInput type="number" formControlName="salary" required />
+          <mat-error *ngIf="addForm.get('salary')?.hasError('required')">
+            Salary is required.
+          </mat-error>
         </mat-form-field>
-  
+
         <!-- Department -->
         <mat-form-field appearance="fill" class="full-width">
           <mat-label>Department</mat-label>
           <input matInput formControlName="department" required />
+          <mat-error *ngIf="addForm.get('department')?.hasError('required')">
+            Department is required.
+          </mat-error>
         </mat-form-field>
-  
+
         <!-- Picture Upload -->
         <div style="margin-bottom: 16px;">
           <label for="picture">Upload Picture:</label>
           <input type="file" id="picture" (change)="onFileSelected($event)" accept="image/*" />
         </div>
-  
+
         <!-- Error -->
         <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
-  
+
         <!-- Submit -->
         <button mat-raised-button color="primary" type="submit" [disabled]="addForm.invalid">
           Add Employee
         </button>
-  
       </form>
     </mat-card-content>
   </mat-card>
-  
+
+  <!-- Back Button -->
+  <div class="back-btn-wrapper">
+    <button mat-raised-button color="primary" routerLink="/employees" class="back-btn">
+      ← Back to Employee List
+    </button>
+  </div>
+</div>

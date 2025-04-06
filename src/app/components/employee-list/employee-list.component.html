@@ -1,3 +1,4 @@
+<div class="page-wrapper">
 <h2>Employee List</h2>
 
 <!-- 🔍 Search by Department -->
@@ -6,7 +7,16 @@
   <input matInput [(ngModel)]="searchTerm" placeholder="e.g. IT, HR, Marketing" />
 </mat-form-field>
 
-<!-- Table with Picture Column -->
+<!-- Add Employee Button -->
+<div class="actions-header">
+  <button class="add-btn" routerLink="/add-employee">Add Employee</button>
+</div>
+
+<!-- Success Message -->
+<div *ngIf="successMessage" class="success-message">
+  {{ successMessage }}
+</div>
+
 <table *ngIf="!loading && filteredEmployees.length">
   <thead>
     <tr>
@@ -35,11 +45,13 @@
       <td>{{ emp.email }}</td>
       <td>{{ emp.salary }}</td>
       <td>{{ emp.department }}</td>
-      <td>
-        <a mat-button color="accent" [routerLink]="['/view', emp._id]">View</a>
-        <a mat-button color="primary" [routerLink]="['/update', emp._id]">Edit</a>
-        <button mat-button color="warn" (click)="deleteEmployee(emp._id)">Delete</button>
-      </td>
+      <td class="actions-cell">
+        <div class="button-group">
+          <button type="button" class="action-btn" (click)="view(emp)">View</button>
+          <button type="button" class="action-btn" (click)="edit(emp)">Edit</button>
+          <button type="button" class="action-btn" (click)="delete(emp)">Delete</button>
+        </div>
+      </td>                                 
     </tr>
   </tbody>
 </table>
@@ -47,3 +59,4 @@
 <!-- Status messages -->
 <p *ngIf="loading">Loading employees...</p>
 <p *ngIf="!loading && !filteredEmployees.length">No employees found.</p>
+</div>

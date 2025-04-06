@@ -1,9 +1,38 @@
+.navbar-wrapper {
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 24px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--primary-color); 
+}
+
+.app-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+}
+
 .spacer {
-    flex: 1 1 auto;
-  }
-  a {
-    color: white;
-    text-decoration: none;
-    margin-left: 10px;
-  }
-  
+  flex: 1;
+}
+
+.welcome {
+  color: white;
+  font-weight: 500;
+  margin-right: 12px;
+}
+
+.logout-btn {
+  color: white;
+  background-color: transparent;
+  font-size: 20px;
+}
+
+.logout-btn:hover {
+  background-color: white;
+}

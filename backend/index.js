@@ -13,30 +13,30 @@ const users = [];
 
 // In-memory employee store
 const employees = [
-  {
-    _id: '1',
-    firstName: 'Nigar',
-    lastName: 'Ahmadova',
-    email: 'nigar@example.com',
-    salary: 70000,
-    department: 'IT',
-    picture: null
-  },
-  {
-    _id: '2',
-    firstName: 'John',
-    lastName: 'Doe',
-    email: 'john@example.com',
-    salary: 65000,
-    department: 'HR',
-    picture: null
-  }
-];
+   {
+     _id: '1',
+     firstName: 'Nigar',
+     lastName: 'Ahmadova',
+     email: 'nigar@gb.ca',
+     salary: 70000,
+     department: 'IT',
+     picture: null
+   },
+   {
+     _id: '2',
+     firstName: 'Sam',
+     lastName: 'Alan',
+     email: 'sam@gb.ca',
+     salary: 65000,
+     department: 'HR',
+     picture: null
+   }
+ ];
 
-// ✅ GraphQL Schema
+// GraphQL Schema
 const typeDefs = gql`
   type Query {
-    employees: [Employee!]!
+    employees(department: String): [Employee!]!
     getEmployee(id: ID!): Employee
   }
 
@@ -86,10 +86,15 @@ const typeDefs = gql`
   }
 `;
 
-// ✅ Resolvers
+// Resolvers
 const resolvers = {
   Query: {
-    employees: () => employees,
+    employees: (_, { department }) => {
+      if (department) {
+        return employees.filter(emp => emp.department.toLowerCase() === department.toLowerCase());
+      }
+      return employees;
+    },
     getEmployee: (_, { id }) => employees.find(emp => emp._id === id)
   },
   Mutation: {
@@ -146,14 +151,14 @@ const resolvers = {
   }
 };
 
-// ✅ Start Apollo Server
+// Start Apollo Server
 async function startServer() {
   const server = new ApolloServer({ typeDefs, resolvers });
   await server.start();
   server.applyMiddleware({ app });
 
   app.listen({ port: 4000 }, () =>
-    console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+    console.log(`Server ready at http://localhost:4000${server.graphqlPath}`)
   );
 }
 

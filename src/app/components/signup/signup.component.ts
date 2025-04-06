@@ -33,7 +33,6 @@ export class SignupComponent {
       password: ['', Validators.required]
     });
 
-    // Debug form status (optional)
     this.signupForm.statusChanges.subscribe(status => {
       console.log('Form status:', status);
     });
